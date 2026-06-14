@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-  <rect width="400" height="400" fill="#faf7f2"/>
-  <rect x="160" y="100" width="80" height="180" rx="20" fill="#f0ebe3" stroke="#c9a87c" stroke-width="2"/>
-  <rect x="170" y="120" width="60" height="100" rx="10" fill="#fff" opacity="0.8"/>
-  <ellipse cx="200" cy="250" rx="30" ry="8" fill="#c9a87c" opacity="0.5"/>
-  <text x="200" y="330" text-anchor="middle" fill="#6b2d3e" font-size="18" font-family="Georgia,serif">Creams & Care</text>
-</svg>
