@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #faf7f2;
+  --color-cream-dark: #f0ebe3;
+  --color-burgundy: #6b2d3e;
+  --color-burgundy-dark: #4a1f2b;
+  --color-rose-gold: #c9a87c;
+  --color-sage: #8fa98b;
+  --color-plum: #3d2430;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+body {
+  @apply bg-cream text-plum antialiased;
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.btn-primary {
+  @apply px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300;
+  @apply bg-burgundy text-cream hover:bg-burgundy-dark hover:-translate-y-0.5 active:scale-[0.98];
+  @apply shadow-lg shadow-burgundy/20;
+}
+
+.btn-outline {
+  @apply px-6 py-3 rounded-full font-semibold text-sm border-2 border-burgundy text-burgundy;
+  @apply hover:bg-burgundy hover:text-cream transition-all duration-300;
+}
+
+.card-product {
+  @apply bg-white rounded-2xl overflow-hidden border border-cream-dark transition-all duration-300;
+  @apply hover:shadow-xl hover:shadow-burgundy/10 hover:-translate-y-1;
+}
+
+.gold-text {
+  background: linear-gradient(135deg, #c9a87c, #e8d4b0, #a88b5a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

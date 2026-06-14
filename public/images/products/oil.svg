@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#faf7f2"/>
+  <ellipse cx="200" cy="280" rx="60" ry="15" fill="#c9a87c" opacity="0.3"/>
+  <rect x="170" y="120" width="60" height="160" rx="8" fill="#c9a87c" opacity="0.6"/>
+  <rect x="175" y="80" width="50" height="50" rx="25" fill="#6b2d3e"/>
+  <path d="M200 200 Q230 250 200 280 Q170 250 200 200" fill="#8fa98b" opacity="0.4"/>
+  <text x="200" y="350" text-anchor="middle" fill="#6b2d3e" font-size="18" font-family="Georgia,serif">Wellness Oil</text>
+</svg>
