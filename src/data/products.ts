@@ -19,12 +19,12 @@ export interface Product {
 
 const B = import.meta.env.BASE_URL;
 
-export const CATEGORIES: { id: Category; label: string; desc: string; icon: string }[] = [
-  { id: 'ayurvedic', label: 'Ayurvedic', desc: 'Verified traditional formulations', icon: '🌿' },
-  { id: 'vitamins', label: 'Vitamins', desc: 'Science-backed supplements', icon: '💊' },
-  { id: 'sextoys', label: 'Sex Toys', desc: 'Premium pleasure devices & kits', icon: '💋' },
-  { id: 'creams', label: 'Creams & Care', desc: 'Sensual skincare & lubricants', icon: '🧴' },
-  { id: 'consultation', label: 'Consultations', desc: 'Private expert guidance', icon: '💬' },
+export const CATEGORIES: { id: Category; label: string; desc: string; icon: string; image: string }[] = [
+  { id: 'ayurvedic', label: 'Ayurvedic', desc: 'Verified traditional formulations', icon: '🌿', image: `${B}images/products/ayurvedic.jpg` },
+  { id: 'vitamins', label: 'Vitamins', desc: 'Science-backed supplements', icon: '💊', image: `${B}images/products/vitamins.jpg` },
+  { id: 'sextoys', label: 'Sex Toys', desc: 'Premium pleasure devices & kits', icon: '💋', image: `${B}images/sex-toys-banner.jpg` },
+  { id: 'creams', label: 'Creams & Care', desc: 'Sensual skincare & lubricants', icon: '🧴', image: `${B}images/products/cream.jpg` },
+  { id: 'consultation', label: 'Consultations', desc: 'Private expert guidance', icon: '💬', image: `${B}images/products/consultation.jpg` },
 ];
 
 export const PRODUCTS: Product[] = [
@@ -181,4 +181,9 @@ export function productsByCategory(cat?: Category) {
 
 export function sexToys() {
   return PRODUCTS.filter((p) => p.category === 'sextoys');
+}
+
+export function productsByCategoryId(cat: Category, limit?: number) {
+  const items = PRODUCTS.filter((p) => p.category === cat);
+  return limit ? items.slice(0, limit) : items;
 }

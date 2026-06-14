@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 
 // Bust stale GitHub Pages / browser caches when we deploy updates
-const APP_VERSION = '2026-06-14-v2';
+const APP_VERSION = '2026-06-14-v3';
 const versionKey = 'ie_app_version';
 const prev = localStorage.getItem(versionKey);
 if (prev && prev !== APP_VERSION) {

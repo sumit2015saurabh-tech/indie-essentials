@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Star, Shield, Package, ArrowRight, Globe, Truck, MapPin } from 'lucide-react';
-import { CATEGORIES, PRODUCTS, sexToys } from '@/data/products';
+import { CATEGORIES, PRODUCTS } from '@/data/products';
 import { TESTIMONIALS } from '@/data/testimonials';
 import { TestimonialCard } from '@/components/TestimonialCard';
+import { CategoryShowcase } from '@/components/CategoryShowcase';
 
 const B = import.meta.env.BASE_URL;
 const HERO = `${B}images/hero.jpg`;
@@ -11,7 +12,6 @@ const STAMINA = PRODUCTS.find((p) => p.slug === 'stamina-builder-syrup')!;
 
 export function HomePage() {
   const featured = [STAMINA, ...PRODUCTS.filter((p) => p.badge && p.category !== 'sextoys' && p.slug !== 'stamina-builder-syrup').slice(0, 3)];
-  const toys = sexToys().slice(0, 4);
   const productReviews = TESTIMONIALS.filter((t) => t.type === 'product').slice(0, 3);
   const consultReviews = TESTIMONIALS.filter((t) => t.type === 'consultation').slice(0, 2);
 
@@ -113,56 +113,64 @@ export function HomePage() {
             <Link
               key={c.id}
               to={c.id === 'consultation' ? '/consultations' : `/shop/${c.id}`}
-              className="card-product p-6 text-center group"
+              className="card-product overflow-hidden group"
             >
-              <span className="text-4xl">{c.icon}</span>
-              <p className="font-display text-lg font-semibold text-burgundy mt-3 group-hover:text-rose-gold transition-colors">{c.label}</p>
-              <p className="text-xs text-plum/50 mt-1">{c.desc}</p>
+              <div className="aspect-[4/3] overflow-hidden bg-cream">
+                <img src={c.image} alt={c.label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
+              <div className="p-4 text-center">
+                <p className="font-display text-lg font-semibold text-burgundy group-hover:text-rose-gold transition-colors">{c.label}</p>
+                <p className="text-xs text-plum/50 mt-1">{c.desc}</p>
+              </div>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="bg-burgundy text-cream py-14">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-10 items-center mb-10">
-            <div>
-              <p className="text-rose-gold text-sm font-medium tracking-widest uppercase mb-3">Pleasure Collection</p>
-              <h2 className="font-display text-4xl font-bold mb-4">Sex Toys</h2>
-              <p className="text-cream/75 leading-relaxed mb-6">
-                Explore our curated range of body-safe vibrators, couples toys, wands and starter kits.
-                Every order ships in plain, unmarked packaging — your privacy is guaranteed.
-              </p>
-              <div className="flex flex-wrap gap-3 text-xs">
-                {['Body-safe silicone', 'Discreet delivery', '1-year warranty', 'Beginner kits'].map((tag) => (
-                  <span key={tag} className="px-3 py-1.5 rounded-full bg-cream/10 border border-cream/20">{tag}</span>
-                ))}
-              </div>
-              <Link to="/shop/sextoys" className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full bg-cream text-burgundy font-semibold text-sm hover:bg-cream-dark transition-colors">
-                View All Sex Toys <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-            <div className="rounded-2xl overflow-hidden border border-cream/20 shadow-2xl">
-              <img src={SEX_TOYS_BANNER} alt="Sex toys collection" className="w-full h-64 md:h-80 object-cover" />
-            </div>
-          </div>
+      <CategoryShowcase
+        id="ayurvedic"
+        title="Ayurvedic"
+        subtitle="Traditional Wellness"
+        description="Verified Ayurvedic formulations including our signature Stamina Builder Syrup, ashwagandha, shilajit and couples wellness oils — lab-tested and GMP-certified."
+        image={`${B}images/products/ayurvedic.jpg`}
+        category="ayurvedic"
+        shopLink="/shop/ayurvedic"
+        tags={['GMP certified', 'Lab tested', '100ml stamina syrup', 'Herbal formulas']}
+      />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {toys.map((p) => (
-              <Link key={p.id} to={`/product/${p.slug}`} className="bg-white rounded-2xl overflow-hidden group hover:-translate-y-1 transition-all duration-300 shadow-lg">
-                <div className="aspect-square bg-cream p-5 flex items-center justify-center">
-                  <img src={p.image} alt={p.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                </div>
-                <div className="p-4">
-                  {p.badge && <span className="text-[10px] bg-burgundy text-cream px-2 py-0.5 rounded-full font-bold">{p.badge}</span>}
-                  <p className="font-semibold text-sm mt-2 text-plum group-hover:text-burgundy transition-colors">{p.name}</p>
-                  <p className="text-burgundy font-bold mt-1">₹{p.price}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CategoryShowcase
+        id="vitamins"
+        title="Vitamins"
+        subtitle="Science-Backed"
+        description="Daily supplements for hormonal balance, circulation, immunity and sexual wellness support — formulated with zinc, maca, omega-3 and essential vitamins."
+        image={`${B}images/products/vitamins.jpg`}
+        category="vitamins"
+        shopLink="/shop/vitamins"
+        tags={['D3 + K2', 'Libido support', 'Omega-3', 'Daily wellness']}
+      />
+
+      <CategoryShowcase
+        id="creams"
+        title="Creams & Care"
+        subtitle="Sensual Skincare"
+        description="Intimate moisturisers, sensation gels, body butters and pH-balanced lubricants — dermatologist and gynaecologist approved for daily comfort."
+        image={`${B}images/products/cream.jpg`}
+        category="creams"
+        shopLink="/shop/creams"
+        tags={['pH balanced', 'Fragrance-free', 'Water-based gels', 'Daily use safe']}
+      />
+
+      <CategoryShowcase
+        id="sextoys"
+        title="Sex Toys"
+        subtitle="Pleasure Collection"
+        description="Explore our curated range of body-safe vibrators, couples toys, wands and starter kits. Every order ships in plain, unmarked packaging — your privacy is guaranteed."
+        image={SEX_TOYS_BANNER}
+        category="sextoys"
+        shopLink="/shop/sextoys"
+        tags={['Body-safe silicone', 'Discreet delivery', '1-year warranty', 'Beginner kits']}
+        dark
+      />
 
       <section className="bg-white py-12">
         <div className="max-w-6xl mx-auto px-4">

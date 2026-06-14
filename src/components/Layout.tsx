@@ -22,12 +22,15 @@ export function Header() {
           </div>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-5">
           <NavLink to="/shop" className={link}>Shop</NavLink>
-          <NavLink to="/product/stamina-builder-syrup" className={link}>Stamina Syrup</NavLink>
+          <NavLink to="/shop/ayurvedic" className={link}>Ayurvedic</NavLink>
+          <NavLink to="/shop/vitamins" className={link}>Vitamins</NavLink>
           <NavLink to="/shop/sextoys" className={link}>Sex Toys</NavLink>
-          <NavLink to="/reviews" className={link}>Reviews</NavLink>
+          <NavLink to="/shop/creams" className={link}>Creams</NavLink>
           <NavLink to="/consultations" className={link}>Consultations</NavLink>
+          <NavLink to="/reviews" className={link}>Reviews</NavLink>
+          <NavLink to="/about" className={link}>About</NavLink>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -51,10 +54,13 @@ export function Header() {
       {open && (
         <div className="md:hidden border-t border-cream-dark px-4 py-4 flex flex-col gap-3 bg-cream">
           <NavLink to="/shop" className={link} onClick={() => setOpen(false)}>Shop</NavLink>
-          <NavLink to="/product/stamina-builder-syrup" className={link} onClick={() => setOpen(false)}>Stamina Syrup</NavLink>
+          <NavLink to="/shop/ayurvedic" className={link} onClick={() => setOpen(false)}>Ayurvedic</NavLink>
+          <NavLink to="/shop/vitamins" className={link} onClick={() => setOpen(false)}>Vitamins</NavLink>
           <NavLink to="/shop/sextoys" className={link} onClick={() => setOpen(false)}>Sex Toys</NavLink>
-          <NavLink to="/reviews" className={link} onClick={() => setOpen(false)}>Reviews</NavLink>
+          <NavLink to="/shop/creams" className={link} onClick={() => setOpen(false)}>Creams & Care</NavLink>
           <NavLink to="/consultations" className={link} onClick={() => setOpen(false)}>Consultations</NavLink>
+          <NavLink to="/reviews" className={link} onClick={() => setOpen(false)}>Reviews</NavLink>
+          <NavLink to="/about" className={link} onClick={() => setOpen(false)}>About</NavLink>
         </div>
       )}
     </header>
