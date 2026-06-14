@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Indie Essentials</title>
+    <script>
+      (function () {
+        var base = '/indie-essentials/';
+        var path = location.pathname.replace(base, '') + location.search + location.hash;
+        sessionStorage.setItem('ie_redirect', path || '/');
+        location.replace(base);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
