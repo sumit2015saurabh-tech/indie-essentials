@@ -7,6 +7,7 @@ import { HomePage } from '@/pages/Home';
 import { ShopPage } from '@/pages/Shop';
 import { ProductPage } from '@/pages/Product';
 import { ConsultationsPage, CartPage, AboutPage, PrivacyPage } from '@/pages/More';
+import { ReviewsPage } from '@/pages/Reviews';
 
 function Redirect404() {
   const nav = useNavigate();
@@ -31,6 +32,7 @@ export default function App() {
               <Route path="/product/:slug" element={<ProductPage />} />
               <Route path="/consultations" element={<ConsultationsPage />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/reviews" element={<ReviewsPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
             </Routes>

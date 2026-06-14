@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { ShoppingBag, Search, Menu, X, Shield, Package, Globe } from 'lucide-react';
 import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
+import { PromoBar } from '@/components/PromoBar';
 
 const link = ({ isActive }: { isActive: boolean }) =>
   `text-sm font-medium transition-colors ${isActive ? 'text-burgundy' : 'text-plum/70 hover:text-burgundy'}`;
@@ -21,12 +22,12 @@ export function Header() {
           </div>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           <NavLink to="/shop" className={link}>Shop</NavLink>
-          <NavLink to="/shop/ayurvedic" className={link}>Ayurvedic</NavLink>
+          <NavLink to="/product/stamina-builder-syrup" className={link}>Stamina Syrup</NavLink>
           <NavLink to="/shop/sextoys" className={link}>Sex Toys</NavLink>
+          <NavLink to="/reviews" className={link}>Reviews</NavLink>
           <NavLink to="/consultations" className={link}>Consultations</NavLink>
-          <NavLink to="/about" className={link}>About</NavLink>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -50,9 +51,10 @@ export function Header() {
       {open && (
         <div className="md:hidden border-t border-cream-dark px-4 py-4 flex flex-col gap-3 bg-cream">
           <NavLink to="/shop" className={link} onClick={() => setOpen(false)}>Shop</NavLink>
+          <NavLink to="/product/stamina-builder-syrup" className={link} onClick={() => setOpen(false)}>Stamina Syrup</NavLink>
           <NavLink to="/shop/sextoys" className={link} onClick={() => setOpen(false)}>Sex Toys</NavLink>
+          <NavLink to="/reviews" className={link} onClick={() => setOpen(false)}>Reviews</NavLink>
           <NavLink to="/consultations" className={link} onClick={() => setOpen(false)}>Consultations</NavLink>
-          <NavLink to="/about" className={link} onClick={() => setOpen(false)}>About</NavLink>
         </div>
       )}
     </header>
@@ -96,6 +98,7 @@ export function Footer() {
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
+      <PromoBar />
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />

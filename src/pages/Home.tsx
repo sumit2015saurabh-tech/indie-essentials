@@ -10,7 +10,7 @@ const SEX_TOYS_BANNER = `${B}images/sex-toys-banner.jpg`;
 const STAMINA = PRODUCTS.find((p) => p.slug === 'stamina-builder-syrup')!;
 
 export function HomePage() {
-  const featured = PRODUCTS.filter((p) => p.badge && p.category !== 'sextoys' && p.slug !== 'stamina-builder-syrup').slice(0, 4);
+  const featured = [STAMINA, ...PRODUCTS.filter((p) => p.badge && p.category !== 'sextoys' && p.slug !== 'stamina-builder-syrup').slice(0, 3)];
   const toys = sexToys().slice(0, 4);
   const productReviews = TESTIMONIALS.filter((t) => t.type === 'product').slice(0, 3);
   const consultReviews = TESTIMONIALS.filter((t) => t.type === 'consultation').slice(0, 2);
@@ -56,7 +56,7 @@ export function HomePage() {
         ))}
       </section>
 
-      <section className="bg-white py-12 border-y border-cream-dark">
+      <section id="stamina" className="bg-white py-12 border-y border-cream-dark scroll-mt-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div className="rounded-2xl overflow-hidden bg-cream p-8 flex items-center justify-center">
@@ -83,6 +83,25 @@ export function HomePage() {
                 <Link to="/shop/ayurvedic" className="btn-outline">All Ayurvedic</Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" className="py-14 bg-cream border-b border-cream-dark scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="font-display text-3xl font-bold text-burgundy">What Our Customers Say</h2>
+            <p className="text-plum/60 mt-2">Real reviews from product buyers and consultation clients</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {productReviews.map((t) => <TestimonialCard key={t.id} t={t} />)}
+          </div>
+          <h3 className="font-display text-xl font-semibold text-burgundy mb-4 text-center">Consultation Reviews</h3>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
+            {consultReviews.map((t) => <TestimonialCard key={t.id} t={t} />)}
+          </div>
+          <div className="text-center">
+            <Link to="/reviews" className="btn-outline">Read All Reviews</Link>
           </div>
         </div>
       </section>
@@ -194,21 +213,6 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="py-14 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="font-display text-3xl font-bold text-burgundy">What Our Customers Say</h2>
-            <p className="text-plum/60 mt-2">Real reviews from product buyers and consultation clients</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {productReviews.map((t) => <TestimonialCard key={t.id} t={t} />)}
-          </div>
-          <h3 className="font-display text-xl font-semibold text-burgundy mb-4 text-center">Consultation Reviews</h3>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {consultReviews.map((t) => <TestimonialCard key={t.id} t={t} />)}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
