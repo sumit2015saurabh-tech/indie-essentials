@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Star, Shield, Package, Heart, ArrowRight } from 'lucide-react';
 import { CATEGORIES, PRODUCTS } from '@/data/products';
 
-const HERO = `${import.meta.env.BASE_URL}images/hero.svg`;
+const HERO = `${import.meta.env.BASE_URL}images/hero.png`;
 
 export function HomePage() {
   const featured = PRODUCTS.filter((p) => p.badge).slice(0, 4);
@@ -11,7 +11,7 @@ export function HomePage() {
     <div>
       <section className="relative overflow-hidden">
         <img src={HERO} alt="" className="w-full h-[420px] md:h-[500px] object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-cream/95 via-cream/70 to-cream/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-cream/85 via-cream/50 to-transparent" />
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-6xl mx-auto px-4 w-full">
             <p className="text-sage text-sm font-medium tracking-widest uppercase mb-3">India&apos;s Indie Wellness Boutique</p>
