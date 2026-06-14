@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { productsByCategory } from '@/data/products';
+import { TESTIMONIALS } from '@/data/testimonials';
+import { TestimonialCard } from '@/components/TestimonialCard';
 import { useCart } from '@/context/CartContext';
-import { Shield, Video, Clock } from 'lucide-react';
+import { Shield, Video, Clock, Globe } from 'lucide-react';
 
 export function ConsultationsPage() {
   const consults = productsByCategory('consultation');
@@ -39,6 +41,24 @@ export function ConsultationsPage() {
           </div>
         ))}
       </div>
+
+      <div className="mt-14">
+        <h2 className="font-display text-2xl font-bold text-burgundy text-center mb-2">Client Testimonials</h2>
+        <p className="text-center text-plum/60 text-sm mb-8">Confidential sessions — shared with permission</p>
+        <div className="grid md:grid-cols-3 gap-6">
+          {TESTIMONIALS.filter((t) => t.type === 'consultation').map((t) => (
+            <TestimonialCard key={t.id} t={t} />
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-10 bg-cream rounded-2xl p-6 flex items-start gap-4 border border-cream-dark">
+        <Globe className="w-8 h-8 text-burgundy shrink-0 mt-1" />
+        <div>
+          <p className="font-semibold text-plum">Available in India &amp; abroad</p>
+          <p className="text-sm text-plum/60 mt-1">Book consultations from anywhere — video sessions work across time zones. Evening and weekend slots available for international clients.</p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -74,7 +94,7 @@ export function CartPage() {
               <span>Total</span>
               <span className="text-burgundy">₹{total}</span>
             </div>
-            <p className="text-xs text-plum/40 mt-2">Checkout available when backend is connected. Discreet packaging guaranteed.</p>
+            <p className="text-xs text-plum/40 mt-2">Checkout available when backend is connected. Discreet packaging guaranteed. We deliver across India and internationally.</p>
             <button type="button" className="btn-primary w-full mt-4">Proceed to Checkout</button>
           </div>
         </>
@@ -89,7 +109,9 @@ export function AboutPage() {
       <h1 className="font-display text-4xl font-bold text-burgundy mb-6">About Indie Essentials</h1>
       <div className="prose prose-plum space-y-4 text-plum/80 leading-relaxed">
         <p>Indie Essentials was founded on a simple belief: sexual wellness is essential health, and it deserves the same care, discretion and quality as any other aspect of wellbeing.</p>
-        <p>We curate verified Ayurvedic formulations, science-backed vitamins, premium intimate wellness products and access to certified consultants — all with plain, discreet packaging and zero judgement.</p>
+        <p>We curate verified Ayurvedic formulations, science-backed vitamins, premium sex toys, intimate creams and access to certified consultants — all with plain, discreet packaging and zero judgement.</p>
+        <p>Our signature <strong>Indie Stamina Builder Syrup</strong> (100ml, ₹999) blends ashwagandha, safed musli and shilajit for natural stamina and vitality — one of our most-loved products.</p>
+        <p>We deliver across <strong>all of India</strong> (2–5 business days) and <strong>40+ countries abroad</strong> including the UK, UAE, USA, Canada and Australia. Every order ships in unmarked packaging.</p>
         <p>Every product is sourced from licensed manufacturers. Ayurvedic items carry proper certification. Consultations are end-to-end encrypted and never shared.</p>
       </div>
     </div>

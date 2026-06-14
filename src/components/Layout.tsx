@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import { ShoppingBag, Search, Menu, X, Shield, Package } from 'lucide-react';
+import { ShoppingBag, Search, Menu, X, Shield, Package, Globe } from 'lucide-react';
 import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
 
@@ -65,22 +65,24 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-12 grid sm:grid-cols-3 gap-8">
         <div>
           <p className="font-display text-2xl text-cream mb-2">Indie Essentials</p>
-          <p className="text-sm leading-relaxed opacity-70">Premium sexual wellness, Ayurvedic care and discreet delivery across India.</p>
+          <p className="text-sm leading-relaxed opacity-70">Premium sexual wellness, Ayurvedic care and discreet delivery across India and 40+ countries worldwide.</p>
         </div>
         <div>
           <p className="font-semibold text-cream mb-3">Shop</p>
           <ul className="space-y-2 text-sm opacity-70">
             <li><Link to="/shop/ayurvedic" className="hover:text-rose-gold">Ayurvedic</Link></li>
+            <li><Link to="/product/stamina-builder-syrup" className="hover:text-rose-gold">Stamina Builder Syrup</Link></li>
             <li><Link to="/shop/vitamins" className="hover:text-rose-gold">Vitamins</Link></li>
             <li><Link to="/shop/sextoys" className="hover:text-rose-gold">Sex Toys</Link></li>
             <li><Link to="/shop/creams" className="hover:text-rose-gold">Creams & Care</Link></li>
           </ul>
         </div>
         <div>
-          <p className="font-semibold text-cream mb-3">Trust</p>
+          <p className="font-semibold text-cream mb-3">Trust & Delivery</p>
           <ul className="space-y-2 text-sm opacity-70">
             <li className="flex items-center gap-2"><Shield className="w-4 h-4" /> Verified products only</li>
             <li className="flex items-center gap-2"><Package className="w-4 h-4" /> Discreet packaging</li>
+            <li className="flex items-center gap-2"><Globe className="w-4 h-4" /> India & international shipping</li>
             <li><Link to="/privacy" className="hover:text-rose-gold">Privacy Policy</Link></li>
           </ul>
           <p className="text-xs opacity-50 mt-4">18+ only · wellness@indieessentials.in</p>
