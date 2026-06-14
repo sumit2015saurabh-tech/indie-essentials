@@ -24,6 +24,7 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-8">
           <NavLink to="/shop" className={link}>Shop</NavLink>
           <NavLink to="/shop/ayurvedic" className={link}>Ayurvedic</NavLink>
+          <NavLink to="/shop/sextoys" className={link}>Sex Toys</NavLink>
           <NavLink to="/consultations" className={link}>Consultations</NavLink>
           <NavLink to="/about" className={link}>About</NavLink>
         </nav>
@@ -49,6 +50,7 @@ export function Header() {
       {open && (
         <div className="md:hidden border-t border-cream-dark px-4 py-4 flex flex-col gap-3 bg-cream">
           <NavLink to="/shop" className={link} onClick={() => setOpen(false)}>Shop</NavLink>
+          <NavLink to="/shop/sextoys" className={link} onClick={() => setOpen(false)}>Sex Toys</NavLink>
           <NavLink to="/consultations" className={link} onClick={() => setOpen(false)}>Consultations</NavLink>
           <NavLink to="/about" className={link} onClick={() => setOpen(false)}>About</NavLink>
         </div>
@@ -70,7 +72,7 @@ export function Footer() {
           <ul className="space-y-2 text-sm opacity-70">
             <li><Link to="/shop/ayurvedic" className="hover:text-rose-gold">Ayurvedic</Link></li>
             <li><Link to="/shop/vitamins" className="hover:text-rose-gold">Vitamins</Link></li>
-            <li><Link to="/shop/intimate" className="hover:text-rose-gold">Intimate Wellness</Link></li>
+            <li><Link to="/shop/sextoys" className="hover:text-rose-gold">Sex Toys</Link></li>
             <li><Link to="/shop/creams" className="hover:text-rose-gold">Creams & Care</Link></li>
           </ul>
         </div>

@@ -1,4 +1,4 @@
-export type Category = 'ayurvedic' | 'vitamins' | 'intimate' | 'creams' | 'consultation';
+export type Category = 'ayurvedic' | 'vitamins' | 'sextoys' | 'creams' | 'consultation';
 
 export interface Product {
   id: string;
@@ -22,7 +22,7 @@ const B = import.meta.env.BASE_URL;
 export const CATEGORIES: { id: Category; label: string; desc: string; icon: string }[] = [
   { id: 'ayurvedic', label: 'Ayurvedic', desc: 'Verified traditional formulations', icon: '🌿' },
   { id: 'vitamins', label: 'Vitamins', desc: 'Science-backed supplements', icon: '💊' },
-  { id: 'intimate', label: 'Intimate Wellness', desc: 'Premium pleasure & comfort', icon: '✨' },
+  { id: 'sextoys', label: 'Sex Toys', desc: 'Premium pleasure devices & kits', icon: '💋' },
   { id: 'creams', label: 'Creams & Care', desc: 'Sensual skincare & lubricants', icon: '🧴' },
   { id: 'consultation', label: 'Consultations', desc: 'Private expert guidance', icon: '💬' },
 ];
@@ -72,24 +72,52 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'p7', name: 'Aura Personal Massager', slug: 'aura-massager',
-    category: 'intimate', price: 2499, originalPrice: 3299, rating: 4.9, reviews: 412,
-    image: `${B}images/products/wellness-device.png`, badge: 'Top Rated', discreet: true,
+    category: 'sextoys', price: 2499, originalPrice: 3299, rating: 4.9, reviews: 412,
+    image: `${B}images/products/sex-toy-massager.png`, badge: 'Top Rated', discreet: true,
     description: 'Whisper-quiet, body-safe silicone massager with 10 modes. USB rechargeable, waterproof.',
     benefits: ['Body-safe silicone', 'Discreet packaging', '1-year warranty'],
   },
   {
     id: 'p8', name: 'Couples Connect Ring', slug: 'couples-ring',
-    category: 'intimate', price: 1299, rating: 4.7, reviews: 198,
-    image: `${B}images/products/wellness-device.png`, discreet: true,
+    category: 'sextoys', price: 1299, rating: 4.7, reviews: 198,
+    image: `${B}images/products/sex-toy-ring.png`, discreet: true,
     description: 'Stretchable silicone ring designed for couples — enhances shared intimate experiences.',
     benefits: ['Flexible fit', 'Rechargeable', 'Travel pouch included'],
   },
   {
     id: 'p9', name: 'Silk Touch Wand', slug: 'silk-touch-wand',
-    category: 'intimate', price: 1899, rating: 4.8, reviews: 267,
-    image: `${B}images/products/wellness-device.png`, badge: 'Popular', discreet: true,
+    category: 'sextoys', price: 1899, rating: 4.8, reviews: 267,
+    image: `${B}images/products/sex-toy-wand.png`, badge: 'Popular', discreet: true,
     description: 'Elegant curved wand massager with velvet-touch finish and warming mode.',
     benefits: ['Warming technology', 'Medical-grade silicone', 'Quiet motor'],
+  },
+  {
+    id: 'p16', name: 'Bullet Bliss Mini Vibrator', slug: 'bullet-bliss',
+    category: 'sextoys', price: 999, originalPrice: 1299, rating: 4.8, reviews: 534,
+    image: `${B}images/products/sex-toy-bullet.png`, badge: 'Bestseller', discreet: true,
+    description: 'Pocket-sized bullet vibrator with 8 intensity levels. Perfect for beginners — discreet, powerful, travel-friendly.',
+    benefits: ['Ultra-discreet size', 'USB rechargeable', 'Waterproof IPX7'],
+  },
+  {
+    id: 'p17', name: 'Pulse Remote Couples Set', slug: 'pulse-remote-set',
+    category: 'sextoys', price: 3499, originalPrice: 4299, rating: 4.9, reviews: 289,
+    image: `${B}images/products/sex-toy-remote.png`, badge: 'Couples Pick', discreet: true,
+    description: 'App and remote-controlled couples vibrator set — sync rhythms together from across the room.',
+    benefits: ['App + remote control', 'Dual motor design', 'Premium gift packaging'],
+  },
+  {
+    id: 'p18', name: 'Velvet Curve Pleasure Wand', slug: 'velvet-curve-wand',
+    category: 'sextoys', price: 2199, rating: 4.7, reviews: 176,
+    image: `${B}images/products/sex-toy-wand.png`, discreet: true,
+    description: 'Ergonomic curved wand with dual-zone stimulation, velvet-soft silicone and 12 vibration patterns.',
+    benefits: ['Dual stimulation zones', 'Velvet-touch finish', '2-year warranty'],
+  },
+  {
+    id: 'p19', name: 'Indie Starter Pleasure Kit', slug: 'starter-pleasure-kit',
+    category: 'sextoys', price: 2799, originalPrice: 3599, rating: 4.8, reviews: 412,
+    image: `${B}images/products/sex-toy-kit.png`, badge: 'Starter Kit', discreet: true,
+    description: 'Curated beginner kit — bullet vibrator, ring, water-based lube sample and illustrated guide. Everything to explore confidently.',
+    benefits: ['Beginner-friendly', 'Includes lube sample', 'Illustrated pleasure guide'],
   },
   {
     id: 'p10', name: 'Sensation Enhancement Gel', slug: 'sensation-gel',
@@ -142,4 +170,8 @@ export function getProduct(slug: string) {
 export function productsByCategory(cat?: Category) {
   if (!cat) return PRODUCTS;
   return PRODUCTS.filter((p) => p.category === cat);
+}
+
+export function sexToys() {
+  return PRODUCTS.filter((p) => p.category === 'sextoys');
 }
